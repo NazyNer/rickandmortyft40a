@@ -1,0 +1,25 @@
+.SearchBar{
+  width: 40vh;
+  height: 8vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.SearchBar input{
+  width: 60%;
+  height: 50%;
+  border-radius: .3rem;
+  border: none;
+  padding: 0 0 0 1rem;
+}
+.SearchBar button{
+  width: 6vw;
+  height: 4vh;
+  border-radius: .3rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out; 
+}
+.SearchBar button:hover{
+  background-color: green;
+}
