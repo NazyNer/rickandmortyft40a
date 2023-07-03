@@ -1,10 +1,9 @@
-import style from './Styles/Card.module.css';
+import style from './Card.module.css';
 
 export default function Card(props) {
-   console.log(props)
    return (
       <div className={style.Card}>
-         <button onClick={props.onClose}>X</button>
+         <button onClick={() => props.onClose(props.id)}>X</button>
          <img  className={style.imgAvatar} src={props.image} alt='' />
          <img  className={style.imgPortal} src='http://localhost:3000/static/media/portal.3b03c3ab43b90370accc.png' alt='Portal de informacion'/>
          <div className={style.CardInfo}>
