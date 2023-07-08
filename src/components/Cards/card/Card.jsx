@@ -1,12 +1,24 @@
 import { Link } from 'react-router-dom';
 import style from './Card.module.css';
 import Detail from '../../Detail/Detail';
+import { addFavorite, deleteFavorite } from '../../../redux/actions/actions';
+import { connect } from 'react-redux';
 
 
-export default function Card(props) {
+function Card(props) {
+
+
+   function handleFavorite() {
+      // const objAction = addFavorite(props);
+   }
 
    return (
       <div className={style.Card}>
+         
+         isFav ? (
+            <button onClick={handleFavorite}>🤍</button>
+         )
+         
          <button onClick={() => props.onClose(props.id)}>X</button>
          <img  className={style.imgAvatar} src={props.image} alt='' />
          <hr />
@@ -23,3 +35,4 @@ export default function Card(props) {
       </div>
    );
 }
+export default connect("")(Card);
