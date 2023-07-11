@@ -8,7 +8,8 @@ export default function Nav(props){
     <Link to="/about">About</Link>
     {/* <Link to="/register">Register</Link>
     <Link to="/login">Login</Link> */}
+    <Link to="/favorites">Favs</Link>
     <SearchBar onSearch={props.onSearch} />
-    <button onClick={props.logout}>LOGOUT</button>
+    <button onClick={props.out}>LOGOUT</button>
   </div>
 }

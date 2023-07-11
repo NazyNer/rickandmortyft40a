@@ -32,13 +32,13 @@ function Card({name, species, status, image, id, onClose, gender, origin, delete
       <div className={style.Card}>
          {
             isFav ? (
-               <button onClick={handleFavorite}>💖</button>
+               <button className={style.buttonOnFavorite} onClick={handleFavorite}>💖</button>
             ) : (
-               <button onClick={handleFavorite}>🤍</button>
+               <button className={style.buttonOnFavorite} onClick={handleFavorite}>🤍</button>
             )
          }
          {
-            onClose ? <button onClick={() => onClose(id)}>X</button> : null
+            onClose ? <button className={style.buttonOnClose} onClick={() => onClose(id)}>X</button> : null
          }
          <img  className={style.imgAvatar} src={image} alt='' />
          <hr />

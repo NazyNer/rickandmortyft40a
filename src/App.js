@@ -6,6 +6,7 @@ import About from './components/About/About.jsx';
 import Home from './components/Home/Home';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
+import Favorites from './components/Favorites/Favorites.jsx';
 import './App.css';
 
 function App() {
@@ -71,9 +72,9 @@ function App() {
             <Route path='/detail/:id' element={
                <Detail />
             } />
-            {/* <Route path='/register' element={
-               <Register />
-            }/> */}
+            <Route path='/favorites' element={
+               <Favorites />
+            }/>
             <Route path='/login' element={
                <Form login={ login }/>
             } />
