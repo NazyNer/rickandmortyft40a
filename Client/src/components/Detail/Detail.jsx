@@ -10,10 +10,11 @@ export default function Detail() {
   const [character, setCharacter] = useState({});
 
   useEffect(()=>{
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-      if (data) {
-        console.log(data)
-        setCharacter(data);
+    axios(`http://localhost:3001/rickandmorty/character/${id}`).then((response) => {
+      if (response.data.character.name) {
+
+        console.log(response.data.character.name)
+        setCharacter(response.data.character.name);
       }else{
         window.alert("No hay personaje con ese ID")
       }
