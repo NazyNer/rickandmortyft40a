@@ -14,7 +14,7 @@ export default function reducerOne(state = initialState, action) {
     case DELETEFAVORITE:
       return {...state, favorites: state.favorites.filter(item => item.id !== action.payload), allCharacters: state.allCharacters.filter(item => item.id !== action.payload)};
     case FILTER:
-      return {...state, favoirites: state.allCharacters.filter((pj) => pj.gender === action.payload),};
+      return {...state, favorites: state.allCharacters.filter((pj) => pj.gender === action.payload),};
     case ORDER: 
       let copyOrder = state.favorites.sort((a, b)=>{
         if (action.payload === "A"){

@@ -9,15 +9,22 @@ function Favorites(props) {
   const favorites = useSelector((state) => state.favorites);
   const dispatch = useDispatch();
   const [booleano, setBooleano] = useState(false)
+  const [all, setAll] = useState(true)
   function handleOrder(event) {
     dispatch(orderCards(event.target.value))
     setBooleano(!booleano)
   }
+
+  function allCharacter() {
+    dispatch(reset())
+    setBooleano(!booleano)
+    setAll(true)
+  }
+
   function handleFilter(event) {
-    if (event.target.value === 'Reset') {
-      dispatch(reset());
-    } else {
+    if (event.target.value !== '') {
       dispatch(filterCards(event.target.value))
+      setAll(false)
     }
     setBooleano(!booleano)
   }
@@ -29,14 +36,14 @@ function Favorites(props) {
           <option value="A">Ascendente</option>
           <option value="D">Descendente</option>
         </select>
-
-        <select onChange={handleFilter}>
-          <option value="Reset">RESET</option>
+        <select value={''} id='Filter' onChange={handleFilter}>
+          {all ? <option selected></option> : null}
           <option value="unknow">UNKNOW</option>
           <option value="Genderless">GENDERLEES</option>
           <option value="Female">FEMALE</option>
           <option value="Male">MALE</option>
         </select>
+        <button onClick={allCharacter}>All Character</button>
       </div>
     
     <div className = {style.container}>
