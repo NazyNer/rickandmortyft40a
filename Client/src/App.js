@@ -14,17 +14,17 @@ function App() {
    const location = useLocation();
    const [access, setAccess] = useState(false);
    function onSearch(id) {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then((respuesta) => {
-         if (respuesta.data.character.name) {
+      axios(`http://localhost:3001/rickandmorty/onSearch/${id}`).then((respuesta) => {
+         if (respuesta.data.name) {
             if (characters.some(pj => pj.id === respuesta.data.id)) {
                window.alert('¡Este personaje ya fue agregado!');
             } else {
-               setCharacters((oldChars) => [...oldChars, respuesta.data.character]);
+               setCharacters((oldChars) => [...oldChars, respuesta.data]);
             }
          }
       }).catch((err) => {
+         console.log(err);
          window.alert(err.response.data.error);
-         console.log(err)
       });
    }
    function onClose(id) {
