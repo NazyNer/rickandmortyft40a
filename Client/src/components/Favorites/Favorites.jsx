@@ -14,7 +14,7 @@ function Favorites(props) {
     dispatch(orderCards(event.target.value))
     setBooleano(!booleano)
   }
-
+  console.log(favorites)
   function allCharacter() {
     dispatch(reset())
     setBooleano(!booleano)

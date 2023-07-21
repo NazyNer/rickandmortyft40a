@@ -14,7 +14,7 @@ function App() {
    const location = useLocation();
    const [access, setAccess] = useState(false);
    function onSearch(id) {
-      axios(`http://localhost:3001/rickandmorty/onSearch/${id}`).then((respuesta) => {
+      axios(`http://localhost:3001/character/${id}`).then((respuesta) => {
          if (respuesta.data.name) {
             if (characters.some(pj => pj.id === respuesta.data.id)) {
                window.alert('¡Este personaje ya fue agregado!');
@@ -34,20 +34,18 @@ function App() {
       );
    }
    const navigate = useNavigate();
-   const EMAIL = 'ejemplo@gmail.com';
-   const PASSWORD = '12345678';
    function logout() {
       setAccess(false);
       navigate('/');
    }
    function login(userData) {
-      if (userData.email === EMAIL && userData.password === PASSWORD) {
-         setAccess(true);
-         navigate('/home');
-      }
-      else{
-         alert("Email o Password incorrectos!!")
-      }
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/user/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
    }
    useEffect(() => {!access && navigate('/')}, [access]);
 

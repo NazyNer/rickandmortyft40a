@@ -1,18 +1,32 @@
-const http = require("http");
 require("dotenv").config();
 const { PORT, PASSWORD } = process.env;
 const { getCharById, getDetail } = require("./controllers/getCharById.js");
+const morgan = require("morgan");
+const cors = require("cors");
+//routers
+const characterRouter = require("./routes/character.js");
+const userRouter = require("./routes/user.js");
+//express
+const express = require('express');
+const favoriteRouter = require("./routes/favorite.js");
+const server = express();
 
-http.createServer((req, res)=> {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  // res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
-  const id = req.url.split("/").at(-1);
-  if (req.url.includes("onSearch")) {
-    return getCharById(res, id);
-  }
-  if (req.url.includes("detail")) {
-    return getDetail(res, id);
-  }
-}).listen(PORT, () => {
+//middleware
+server.use(express.json());
+server.use(morgan("dev"));
+server.use(cors());
 
+
+server.use("/character", characterRouter);
+server.use("/user", userRouter);
+server.use("/favorites", (req, res) => {
+  res.send(req.body);
 })
+
+server.get("/health-check", (req, res) => {
+  res.send("Server is running");
+});
+
+server.listen(PORT, () => {
+  console.log('Server raised in port: ' + PORT);
+});

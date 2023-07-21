@@ -10,7 +10,7 @@ export default function Detail() {
   const [character, setCharacter] = useState({});
 
   useEffect(()=>{
-    axios(`http://localhost:3001/rickandmorty/detail/${id}`).then((response) => {
+    axios(`http://localhost:3001/character/${id}`).then((response) => {
       if (response.data) {
         console.log(response.data)
         setCharacter(response.data);
@@ -32,7 +32,6 @@ export default function Detail() {
         <p>Estado: {character.status ? character.status : "💀Desconocido💀"}</p>
         <p>Genero: {character.gender ? character.gender : "🚹Desconocido🚺"}</p>
         <p>Origen: {character.origin?.name}</p>
-        <p>Lugar: {character.location?.name}</p>
       </div>
     );
 }

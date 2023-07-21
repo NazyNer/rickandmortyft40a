@@ -9,10 +9,9 @@ const initialState = {
 export default function reducerOne(state = initialState, action) {
   switch(action.type){
     case ADDFAVORITE:
-      let copy = [...state.allCharacters, action.payload];
-      return {...state, favorites: copy, allCharacters: [...copy]};
+      return { ...state, favorites: action.payload, allCharacters: action.payload };
     case DELETEFAVORITE:
-      return {...state, favorites: state.favorites.filter(item => item.id !== action.payload), allCharacters: state.allCharacters.filter(item => item.id !== action.payload)};
+      return { ...state, favorites: action.payload, allCharacters: action.payload };
     case FILTER:
       return {...state, favorites: state.allCharacters.filter((pj) => pj.gender === action.payload),};
     case ORDER: 

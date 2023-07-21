@@ -6,17 +6,21 @@ import { connect } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 
-function Card({name, species, status, image, id, onClose, gender, origin, deleteFavorite, addFavorite, favorites }) {
+function Card({name, species, status, image, id, onClose, gender, origin, favorites }) {
    const [isFav, setIsFav] = useState(false)
 
    function handleFavorite() {
+      console.log("llega");
       // const objAction = addFavorite(props);
       if (isFav) {
+         console.log("isFav: ", isFav);
          setIsFav(false)
-         deleteFavorite(id)
+      //    deleteFavorite(id)
       }else{
+         console.log("isFav: ", isFav);
          setIsFav(true)
-         addFavorite({name, species, status, image, id, gender, origin})
+         const character = {name, species, status, image, id, gender, origin}
+         addFavorite(character)
       }
    };
 
