@@ -10,14 +10,11 @@ function Card({name, species, status, image, id, onClose, gender, origin, favori
    const [isFav, setIsFav] = useState(false)
 
    function handleFavorite() {
-      console.log("llega");
       // const objAction = addFavorite(props);
       if (isFav) {
-         console.log("isFav: ", isFav);
          setIsFav(false)
-      //    deleteFavorite(id)
+         deleteFavorite(id)
       }else{
-         console.log("isFav: ", isFav);
          setIsFav(true)
          const character = {name, species, status, image, id, gender, origin}
          addFavorite(character)

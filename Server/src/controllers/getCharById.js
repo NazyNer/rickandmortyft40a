@@ -3,7 +3,6 @@ const URL = "https://rickandmortyapi.com/api/character/"
 
 function getCharById(req, res) {
   const { id } = req.params;
-
   axios(`${URL}${id}`).then(({ data }) => {
     if (data.error) {
       return res.status(404).send(data.error);

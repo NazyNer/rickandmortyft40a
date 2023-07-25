@@ -24,7 +24,9 @@ function Favorites(props) {
   function handleFilter(event) {
     if (event.target.value !== '') {
       dispatch(filterCards(event.target.value))
-      setAll(false)
+      if (all) {
+        setAll(false)
+      }
     }
     setBooleano(!booleano)
   }

@@ -14,7 +14,6 @@ function deleteFav(req, res) {
 }
 
 function getFav(req, res) {
-  console.log("llega?")
   return res.json(myFavorites);
 }
 

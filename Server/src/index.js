@@ -19,9 +19,7 @@ server.use(cors());
 
 server.use("/character", characterRouter);
 server.use("/user", userRouter);
-server.use("/favorites", (req, res) => {
-  res.send(req.body);
-})
+server.use("/favorite", favoriteRouter);
 
 server.get("/health-check", (req, res) => {
   res.send("Server is running");
