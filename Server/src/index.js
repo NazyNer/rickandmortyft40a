@@ -7,7 +7,7 @@ const cors = require("cors");
 const characterRouter = require("./routes/character.js");
 const userRouter = require("./routes/user.js");
 //express
-const express = require('express');
+const express = require("express");
 const favoriteRouter = require("./routes/favorite.js");
 const server = express();
 

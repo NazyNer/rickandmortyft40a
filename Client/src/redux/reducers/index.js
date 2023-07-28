@@ -9,7 +9,6 @@ const initialState = {
 export default function reducerOne(state = initialState, action) {
   switch(action.type){
     case ADDFAVORITE:
-      console.log(action.payload)
       return { ...state, favorites: action.payload, allCharacters: action.payload };
     case DELETEFAVORITE:
       return { ...state, favorites: action.payload, allCharacters: action.payload };

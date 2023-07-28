@@ -7,17 +7,18 @@ import { useEffect, useState } from 'react';
 
 
 function Card({name, species, status, image, id, onClose, gender, origin, favorites }) {
-   const [isFav, setIsFav] = useState(false)
+   const [isFav, setIsFav] = useState(false);
 
    function handleFavorite() {
       // const objAction = addFavorite(props);
       if (isFav) {
-         setIsFav(false)
-         deleteFavorite(id)
+         setIsFav(false);
+         deleteFavorite(id);
       }else{
-         setIsFav(true)
-         const character = {name, species, status, image, id, gender, origin}
-         addFavorite(character)
+         setIsFav(true);
+         const character = {name, species, status, image, id, gender, origin};
+         console.log("mandando");
+         addFavorite(character);
       }
    };
 

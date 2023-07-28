@@ -1,10 +1,9 @@
 import { ADDFAVORITE, DELETEFAVORITE, FILTER, ORDER, RESET } from "./types.js"
 import axios from "axios";
 
-
 // ACTION | addFav
 export const addFavorite = (character) => {
-  const endpoint = 'http://localhost:3001/favorite/';
+  const endpoint = "http://localhost:3001/favorites/";
   return (dispatch) => {
     axios.post(endpoint, character).then(({ data }) => {
       return dispatch({
@@ -14,7 +13,8 @@ export const addFavorite = (character) => {
     });
   };
 };
-export const deleteFavorite = (id) => {
+
+export function deleteFavorite(id) {
   const endpoint = 'http://localhost:3001/favorite/' + id;
   return (dispatch) => {
     axios.delete(endpoint).then(({ data }) => {
